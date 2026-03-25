@@ -63,6 +63,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+body.no-scroll {
+    overflow: hidden;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -1397,35 +1401,43 @@ a {
     }
 
     .nav-close {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         position: absolute;
-        top: 24px;
-        right: 24px;
-        background: none;
-        border: none;
-        color: var(--text-primary);
-        font-size: 28px;
+        top: 20px;
+        right: 20px;
+        background: rgba(10, 10, 10, 0.8);
+        border: 2px solid var(--gold);
+        color: var(--gold);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        font-size: 32px;
+        font-weight: 400;
         cursor: pointer;
         z-index: 10;
-        transition: color 0.3s var(--ease);
+        transition: all 0.3s var(--ease);
+        backdrop-filter: blur(4px);
     }
 
     .nav-close:hover {
-        color: var(--gold);
+        background: var(--gold);
+        color: var(--black);
+        transform: scale(1.1);
     }
 
     .nav-menu-wrapper {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 100%;
-        max-width: 350px;
-        height: 100vh;
-        background: linear-gradient(rgba(10, 10, 10, 0.75), rgba(10, 10, 10, 0.95)), url('assets/stelvio-bikes.png') center/cover no-repeat;
+        width: 280px;
+        height: 100%;
+        background: linear-gradient(rgba(10, 10, 10, 0.65), rgba(10, 10, 10, 0.95)), url('assets/stelvio-bikes.png') center/cover no-repeat;
         display: flex;
         flex-direction: column;
-        padding: 100px 32px 40px;
-        gap: 24px;
+        padding: 80px 24px 32px;
+        gap: 16px;
         transition: right 0.4s var(--ease);
         box-shadow: -4px 0 30px rgba(0, 0, 0, 0.5);
         overflow: hidden;
