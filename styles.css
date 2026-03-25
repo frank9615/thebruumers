@@ -261,6 +261,10 @@ a {
     background: linear-gradient(135deg, var(--gold-light), var(--gold)) !important;
 }
 
+.nav-close {
+    display: none;
+}
+
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -1392,6 +1396,24 @@ a {
         display: flex;
     }
 
+    .nav-close {
+        display: block;
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        font-size: 28px;
+        cursor: pointer;
+        z-index: 10;
+        transition: color 0.3s var(--ease);
+    }
+
+    .nav-close:hover {
+        color: var(--gold);
+    }
+
     .nav-menu-wrapper {
         position: fixed;
         top: 0;
@@ -1406,7 +1428,7 @@ a {
         gap: 24px;
         transition: right 0.4s var(--ease);
         box-shadow: -4px 0 30px rgba(0, 0, 0, 0.5);
-        overflow-y: auto;
+        overflow: hidden;
     }
 
     .nav-menu-wrapper.open {
@@ -1418,7 +1440,6 @@ a {
         align-items: flex-start;
         gap: 20px;
         width: 100%;
-        flex: 1;
         margin-top: 10px;
     }
 
@@ -1429,6 +1450,7 @@ a {
         padding-top: 24px;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         width: 100%;
+        margin-top: auto;
     }
 
     .mobile-info-social {

@@ -22,11 +22,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===========================
     const navToggle = document.getElementById('nav-toggle');
     const navMenuWrapper = document.getElementById('nav-menu-wrapper');
+    const navClose = document.getElementById('nav-close');
 
     navToggle.addEventListener('click', () => {
         navToggle.classList.toggle('active');
         if (navMenuWrapper) navMenuWrapper.classList.toggle('open');
     });
+
+    if (navClose) {
+        navClose.addEventListener('click', () => {
+            navToggle.classList.remove('active');
+            if (navMenuWrapper) navMenuWrapper.classList.remove('open');
+        });
+    }
 
     // Close menu when clicking a link
     document.querySelectorAll('.nav-link').forEach(link => {
