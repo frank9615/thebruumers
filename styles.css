@@ -63,10 +63,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-body.no-scroll {
-    overflow: hidden;
-}
-
 .container {
     max-width: 1200px;
     margin: 0 auto;

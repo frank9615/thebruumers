@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (navToggle) navToggle.classList.remove('active');
         if (navMenuWrapper) {
             navMenuWrapper.classList.remove('open');
-            document.body.classList.remove('no-scroll');
         }
     }
 
@@ -30,7 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             navbar.classList.remove('scrolled');
         }
-        closeMobileMenu(); // Auto-close menu on any background scroll
+        
+        // Auto-close menu on any background scroll
+        if (navMenuWrapper && navMenuWrapper.classList.contains('open')) {
+            closeMobileMenu();
+        }
     }, { passive: true });
 
     // ===========================
@@ -43,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
             navToggle.classList.toggle('active');
             if (navMenuWrapper) {
                 navMenuWrapper.classList.toggle('open');
-                document.body.classList.toggle('no-scroll', navMenuWrapper.classList.contains('open'));
             }
         });
     }
