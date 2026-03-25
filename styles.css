@@ -224,6 +224,11 @@ a {
     object-fit: cover;
 }
 
+.nav-menu-wrapper {
+    display: flex;
+    align-items: center;
+}
+
 .nav-menu {
     display: flex;
     align-items: center;
@@ -299,6 +304,7 @@ a {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    padding-top: 60px;
 }
 
 .hero-bg {
@@ -1363,6 +1369,10 @@ a {
    Responsive
    =========================== */
 
+.nav-mobile-info {
+    display: none;
+}
+
 @media (max-width: 1024px) {
     .president-card {
         grid-template-columns: 350px 1fr;
@@ -1382,28 +1392,71 @@ a {
         display: flex;
     }
 
-    .nav-menu {
+    .nav-menu-wrapper {
         position: fixed;
         top: 0;
         right: -100%;
         width: 100%;
-        max-width: 300px;
+        max-width: 350px;
         height: 100vh;
-        background: var(--dark);
+        background: linear-gradient(rgba(10, 10, 10, 0.75), rgba(10, 10, 10, 0.95)), url('assets/stelvio-bikes.png') center/cover no-repeat;
+        display: flex;
         flex-direction: column;
-        padding: 100px 40px 40px;
-        gap: 4px;
+        padding: 100px 32px 40px;
+        gap: 24px;
         transition: right 0.4s var(--ease);
         box-shadow: -4px 0 30px rgba(0, 0, 0, 0.5);
+        overflow-y: auto;
     }
 
-    .nav-menu.open {
+    .nav-menu-wrapper.open {
         right: 0;
     }
 
+    .nav-menu {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        width: 100%;
+        flex: 1;
+        margin-top: 10px;
+    }
+
+    .nav-mobile-info {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+    }
+
+    .mobile-info-social {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .mobile-info-social a {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold);
+        font-size: 20px;
+        transition: all 0.3s var(--ease);
+    }
+
+    .mobile-info-social a:hover {
+        background: rgba(201, 168, 76, 0.2);
+    }
+
     .nav-link {
-        font-size: 16px;
-        padding: 14px 18px;
+        font-size: 18px;
+        padding: 8px 18px;
         width: 100%;
     }
 

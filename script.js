@@ -21,18 +21,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile Menu Toggle
     // ===========================
     const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
+    const navMenuWrapper = document.getElementById('nav-menu-wrapper');
 
     navToggle.addEventListener('click', () => {
         navToggle.classList.toggle('active');
-        navMenu.classList.toggle('open');
+        if (navMenuWrapper) navMenuWrapper.classList.toggle('open');
     });
 
     // Close menu when clicking a link
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             navToggle.classList.remove('active');
-            navMenu.classList.remove('open');
+            if (navMenuWrapper) navMenuWrapper.classList.remove('open');
         });
     });
 
