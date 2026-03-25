@@ -388,10 +388,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===========================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const target = document.querySelector(targetId);
             if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
+                e.preventDefault();
+                
+                if (targetId === '#hero') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+
+                // Scroll to the content itself to ignore the empty section padding
+                const contentWrapper = target.querySelector('.container') || target;
+                const elementPosition = contentWrapper.getBoundingClientRect().top;
+                
+                // 80px navbar height + 20px visual margin
+                const offsetPosition = elementPosition + window.scrollY - 100;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
             }
         });
     });
