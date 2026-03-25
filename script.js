@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function initMap() {
         // Create map centered on the route
         const map = L.map('map', {
-            center: [38.5, 22],
+            center: [40, 19],
             zoom: 6,
             zoomControl: true,
             scrollWheelZoom: false
@@ -152,8 +152,67 @@ document.addEventListener('DOMContentLoaded', () => {
             popupAnchor: [0, -14]
         });
 
-        // Trip route waypoints (Palermo → Greece trip)
-        const tripStops = [
+        // ===========================
+        // Trip Data: Balcani 2024
+        // ===========================
+        const balcaniStops = [
+            {
+                name: 'Palermo',
+                coords: [38.1157, 13.3615],
+                desc: 'Punto di partenza — la nostra base. Da qui parte l\'avventura!',
+                isStart: true
+            },
+            {
+                name: 'Bari',
+                coords: [41.1171, 16.8719],
+                desc: 'Tappa in Puglia. Imbarco per l\'Albania dal porto di Bari.'
+            },
+            {
+                name: 'Durazzo',
+                coords: [41.3233, 19.4517],
+                desc: 'Arrivo in Albania! Porto di sbarco e prima tappa balcanica.'
+            },
+            {
+                name: 'Scutari',
+                coords: [42.0693, 19.5126],
+                desc: 'L\'antica capitale albanese, tra il lago e le montagne.'
+            },
+            {
+                name: 'Igalo, Montenegro',
+                coords: [42.4574, 18.5147],
+                desc: 'Le Bocche di Cattaro, uno dei fiordi più belli d\'Europa.'
+            },
+            {
+                name: 'Spalato, Croazia',
+                coords: [43.5081, 16.4402],
+                desc: 'Il Palazzo di Diocleziano, patrimonio UNESCO sul mare.'
+            },
+            {
+                name: 'Mostar, Bosnia',
+                coords: [43.3438, 17.8078],
+                desc: 'Lo Stari Most, il ponte iconico simbolo della Bosnia.'
+            },
+            {
+                name: 'Sarajevo, Bosnia ed Erzegovina',
+                coords: [43.8563, 18.4131],
+                desc: 'La Gerusalemme d\'Europa. Storia, cultura e ćevapi.'
+            },
+            {
+                name: 'Bobotov Kuk, Montenegro',
+                coords: [43.1244, 19.0283],
+                desc: 'La vetta del Durmitor. Strade di montagna mozzafiato.'
+            },
+            {
+                name: 'Durazzo (Ritorno)',
+                coords: [41.3233, 19.4517],
+                desc: 'Ritorno al porto di Durazzo per il traghetto verso casa.'
+            }
+        ];
+
+        // ===========================
+        // Trip Data: Grecia 2025
+        // ===========================
+        const greciaStops = [
             {
                 name: 'Palermo',
                 coords: [38.1157, 13.3615],
@@ -227,42 +286,101 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         ];
 
-        // Add markers
-        tripStops.forEach(stop => {
-            const marker = L.marker(stop.coords, {
-                icon: stop.isStart ? startIcon : goldIcon
+        // Store trip data
+        const trips = {
+            balcani: balcaniStops,
+            grecia: greciaStops
+        };
+
+        // Layers for current trip
+        let currentMarkers = [];
+        let currentPolylines = [];
+
+        function showTrip(tripName) {
+            // Clear existing markers and lines
+            currentMarkers.forEach(m => map.removeLayer(m));
+            currentPolylines.forEach(p => map.removeLayer(p));
+            currentMarkers = [];
+            currentPolylines = [];
+
+            const stops = trips[tripName];
+            if (!stops) return;
+
+            // Add markers
+            stops.forEach(stop => {
+                const marker = L.marker(stop.coords, {
+                    icon: stop.isStart ? startIcon : goldIcon
+                }).addTo(map);
+
+                marker.bindPopup(`
+                    <div class="popup-title">${stop.name}</div>
+                    <div class="popup-desc">${stop.desc}</div>
+                `);
+
+                currentMarkers.push(marker);
+            });
+
+            // Draw route polyline
+            const routeCoords = stops.map(s => s.coords);
+
+            // Glow effect line underneath
+            const glowLine = L.polyline(routeCoords, {
+                color: '#c9a84c',
+                weight: 6,
+                opacity: 0.2,
+                smoothFactor: 1
             }).addTo(map);
+            currentPolylines.push(glowLine);
 
-            marker.bindPopup(`
-                <div class="popup-title">${stop.name}</div>
-                <div class="popup-desc">${stop.desc}</div>
-            `);
+            // Main route line
+            const mainLine = L.polyline(routeCoords, {
+                color: '#c9a84c',
+                weight: 3,
+                opacity: 0.8,
+                smoothFactor: 1,
+                dashArray: '8, 12',
+                lineCap: 'round'
+            }).addTo(map);
+            currentPolylines.push(mainLine);
+
+            // Fit map to route bounds
+            const bounds = L.latLngBounds(routeCoords);
+            map.fitBounds(bounds, { padding: [40, 40] });
+        }
+
+        // Show initial trip (Balcani 2024)
+        showTrip('balcani');
+
+        // Trip selector buttons
+        document.querySelectorAll('.trip-select-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.trip-select-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                showTrip(btn.dataset.trip);
+            });
         });
+    }
 
-        // Draw route polyline
-        const routeCoords = tripStops.map(s => s.coords);
-        
-        // Add a glow effect line underneath
-        L.polyline(routeCoords, {
-            color: '#c9a84c',
-            weight: 6,
-            opacity: 0.2,
-            smoothFactor: 1
-        }).addTo(map);
+    // ===========================
+    // Sticker Reveal Animation
+    // ===========================
+    const stickerObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const stickers = entry.target.querySelectorAll('.country-sticker');
+                stickers.forEach((sticker, i) => {
+                    setTimeout(() => {
+                        sticker.classList.add('revealed');
+                    }, i * 150);
+                });
+                stickerObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
 
-        // Main route line
-        L.polyline(routeCoords, {
-            color: '#c9a84c',
-            weight: 3,
-            opacity: 0.8,
-            smoothFactor: 1,
-            dashArray: '8, 12',
-            lineCap: 'round'
-        }).addTo(map);
-
-        // Fit map to route bounds
-        const bounds = L.latLngBounds(routeCoords);
-        map.fitBounds(bounds, { padding: [40, 40] });
+    const stickersGrid = document.querySelector('.stickers-grid');
+    if (stickersGrid) {
+        stickerObserver.observe(stickersGrid);
     }
 
     // ===========================

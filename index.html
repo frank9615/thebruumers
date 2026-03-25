@@ -87,13 +87,13 @@
                     <span class="stat-label">Ultimo viaggio</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-number" data-target="5">0</span>
+                    <span class="stat-number" data-target="6">0</span>
                     <span class="stat-unit">+</span>
                     <span class="stat-label">Viaggi completati</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-number" data-target="3">0</span>
-                    <span class="stat-unit">+</span>
+                    <span class="stat-number" data-target="7">0</span>
+                    <span class="stat-unit"></span>
                     <span class="stat-label">Paesi visitati</span>
                 </div>
             </div>
@@ -203,6 +203,54 @@
                     interattiva e scopri i percorsi che abbiamo attraversato insieme.</p>
             </div>
 
+            <!-- Country Stickers -->
+            <div class="stickers-section animate-on-scroll">
+                <div class="stickers-header">
+                    <div class="stickers-title">
+                        <i class="fas fa-globe-europe"></i>
+                        <h3>Paesi Conquistati in Moto</h3>
+                    </div>
+                    <p class="stickers-subtitle">Come ogni vero motociclista, collezioniamo gli adesivi dei paesi visitati.</p>
+                </div>
+                <div class="stickers-grid">
+                    <div class="country-sticker" data-year="2024">
+                        <div class="sticker-flag">🇮🇹</div>
+                        <div class="sticker-code">IT</div>
+                        <div class="sticker-name">Italia</div>
+                    </div>
+                    <div class="country-sticker" data-year="2024">
+                        <div class="sticker-flag">🇦🇱</div>
+                        <div class="sticker-code">AL</div>
+                        <div class="sticker-name">Albania</div>
+                    </div>
+                    <div class="country-sticker" data-year="2024">
+                        <div class="sticker-flag">🇲🇪</div>
+                        <div class="sticker-code">ME</div>
+                        <div class="sticker-name">Montenegro</div>
+                    </div>
+                    <div class="country-sticker" data-year="2024">
+                        <div class="sticker-flag">🇭🇷</div>
+                        <div class="sticker-code">HR</div>
+                        <div class="sticker-name">Croazia</div>
+                    </div>
+                    <div class="country-sticker" data-year="2024">
+                        <div class="sticker-flag">🇧🇦</div>
+                        <div class="sticker-code">BA</div>
+                        <div class="sticker-name">Bosnia</div>
+                    </div>
+                    <div class="country-sticker" data-year="2024">
+                        <div class="sticker-flag">🇷🇸</div>
+                        <div class="sticker-code">RS</div>
+                        <div class="sticker-name">Serbia</div>
+                    </div>
+                    <div class="country-sticker" data-year="2025">
+                        <div class="sticker-flag">🇬🇷</div>
+                        <div class="sticker-code">GR</div>
+                        <div class="sticker-name">Grecia</div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Interactive Map -->
             <div class="map-container animate-on-scroll">
                 <div class="map-header">
@@ -210,10 +258,16 @@
                         <i class="fas fa-route"></i>
                         <h3>Mappa dei Viaggi</h3>
                     </div>
-                    <div class="map-legend">
-                        <span class="legend-item"><span class="legend-dot" style="background:#c9a84c"></span>
-                            Tappe</span>
-                        <span class="legend-item"><span class="legend-line"></span> Percorso</span>
+                    <div class="map-controls">
+                        <div class="trip-selector">
+                            <button class="trip-select-btn active" data-trip="balcani"><i class="fas fa-compass"></i> Balcani 2024</button>
+                            <button class="trip-select-btn" data-trip="grecia"><i class="fas fa-sun"></i> Grecia 2025</button>
+                        </div>
+                        <div class="map-legend">
+                            <span class="legend-item"><span class="legend-dot" style="background:#c9a84c"></span>
+                                Tappe</span>
+                            <span class="legend-item"><span class="legend-line"></span> Percorso</span>
+                        </div>
                     </div>
                 </div>
                 <div id="map"></div>
@@ -221,8 +275,45 @@
 
             <!-- Trip Cards -->
             <div class="trip-cards animate-on-scroll">
+                <!-- Balkan Tour 2024 -->
                 <div class="trip-card trip-card-featured">
-                    <div class="trip-card-badge">Epico</div>
+                    <div class="trip-card-badge">2024</div>
+                    <div class="trip-card-image">
+                        <img src="https://images.unsplash.com/photo-1592425044556-d5280e07d8db?w=800&q=80" alt="Viaggio Balcani in moto - Stari Most Mostar">
+                    </div>
+                    <div class="trip-card-content">
+                        <h3>Tour dei Balcani</h3>
+                        <p class="trip-card-subtitle">Palermo → Bari → Albania → Montenegro → Croazia → Bosnia</p>
+                        <div class="trip-stats">
+                            <div class="trip-stat"><i class="fas fa-road"></i> 2.178 km</div>
+                            <div class="trip-stat"><i class="fas fa-clock"></i> 39 ore di guida</div>
+                            <div class="trip-stat"><i class="fas fa-map-pin"></i> 10 tappe</div>
+                            <div class="trip-stat"><i class="fas fa-flag"></i> 6 paesi</div>
+                        </div>
+                        <p class="trip-card-desc">
+                            Un'epica avventura attraverso i Balcani. Da Palermo a Bari, poi in traghetto verso Durazzo.
+                            Attraverso l'Albania selvaggia fino agli splendidi fiordi del Montenegro, le strade costiere
+                            della Croazia, il ponte iconico di Mostar e la storica Sarajevo. Ritorno passando per il
+                            Bobotov Kuk e la costa albanese.
+                        </p>
+                        <div class="trip-route-tags">
+                            <span class="route-tag">Palermo</span>
+                            <span class="route-tag">Bari</span>
+                            <span class="route-tag">Durazzo</span>
+                            <span class="route-tag">Scutari</span>
+                            <span class="route-tag">Igalo</span>
+                            <span class="route-tag">Spalato</span>
+                            <span class="route-tag">Mostar</span>
+                            <span class="route-tag">Sarajevo</span>
+                            <span class="route-tag">Bobotov Kuk</span>
+                            <span class="route-tag">Durazzo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Greece Trip 2025 -->
+                <div class="trip-card trip-card-featured">
+                    <div class="trip-card-badge">2025</div>
                     <div class="trip-card-image">
                         <img src="assets/route-greece.jpg" alt="Viaggio Palermo - Grecia">
                     </div>
@@ -255,9 +346,10 @@
                     </div>
                 </div>
 
+                <!-- Madonie -->
                 <div class="trip-card">
-                    <div class="trip-card-image trip-card-image-placeholder">
-                        <i class="fas fa-mountain"></i>
+                    <div class="trip-card-image">
+                        <img src="https://images.unsplash.com/photo-1627917896863-0c439602e1ae?w=600&q=80" alt="Strade delle Madonie - Sicilia">
                     </div>
                     <div class="trip-card-content">
                         <h3>Il Giro delle Madonie</h3>
@@ -274,21 +366,23 @@
                     </div>
                 </div>
 
+                <!-- Targa Florio -->
                 <div class="trip-card">
-                    <div class="trip-card-image trip-card-image-placeholder">
-                        <i class="fas fa-water"></i>
+                    <div class="trip-card-image">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80" alt="Giro della Targa Florio in moto">
                     </div>
                     <div class="trip-card-content">
-                        <h3>Costa a Costa</h3>
-                        <p class="trip-card-subtitle">Da Palermo a Cefalù lungo la costa</p>
+                        <h3>Giro della Targa Florio</h3>
+                        <p class="trip-card-subtitle">Sulle orme della corsa leggendaria</p>
                         <div class="trip-stats">
-                            <div class="trip-stat"><i class="fas fa-road"></i> 140 km</div>
-                            <div class="trip-stat"><i class="fas fa-clock"></i> 4 ore</div>
-                            <div class="trip-stat"><i class="fas fa-map-pin"></i> 4 tappe</div>
+                            <div class="trip-stat"><i class="fas fa-road"></i> 150 km</div>
+                            <div class="trip-stat"><i class="fas fa-clock"></i> 5 ore</div>
+                            <div class="trip-stat"><i class="fas fa-map-pin"></i> 6 tappe</div>
                         </div>
                         <p class="trip-card-desc">
-                            La litoranea tirrenica al suo meglio. Una giornata rilassante lungo la costa con pranzo di
-                            pesce fresco a Cefalù e tramonto sulla spiaggia.
+                            Il circuito stradale più antico del mondo, percorso in moto fermandosi nei borghi più
+                            caratteristici. Da Cerda a Caltavuturo, passando per Collesano e le curve
+                            mozzafiato di Piano Battaglia. Storia, adrenalina e panorami indimenticabili.
                         </p>
                     </div>
                 </div>

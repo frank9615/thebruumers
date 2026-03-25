@@ -869,6 +869,188 @@ a {
 }
 
 /* ===========================
+   Country Stickers
+   =========================== */
+
+.stickers-section {
+    background: var(--dark-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 36px;
+    margin-bottom: 48px;
+}
+
+.stickers-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.stickers-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--gold);
+}
+
+.stickers-title h3 {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.stickers-subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.stickers-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+.country-sticker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    height: 130px;
+    background: linear-gradient(145deg, #1e1e1e, #141414);
+    border: 2px solid rgba(201, 168, 76, 0.25);
+    border-radius: 16px;
+    position: relative;
+    cursor: default;
+    transition: all 0.5s var(--ease-bounce);
+    opacity: 0;
+    transform: scale(0.5) rotate(-15deg);
+}
+
+.country-sticker.revealed {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+}
+
+.country-sticker::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(201, 168, 76, 0.3), transparent, rgba(201, 168, 76, 0.1));
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s var(--ease);
+}
+
+.country-sticker:hover::before {
+    opacity: 1;
+}
+
+.country-sticker:hover {
+    transform: scale(1.1) rotate(3deg);
+    border-color: var(--gold);
+    box-shadow: 0 8px 30px rgba(201, 168, 76, 0.2);
+}
+
+.country-sticker::after {
+    content: attr(data-year);
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--gold);
+    color: var(--black);
+    font-family: var(--font-heading);
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    letter-spacing: 0.5px;
+}
+
+.sticker-flag {
+    font-size: 36px;
+    line-height: 1;
+    margin-bottom: 6px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.sticker-code {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--gold);
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+.sticker-name {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+/* ===========================
+   Map Controls & Trip Selector
+   =========================== */
+
+.map-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.trip-selector {
+    display: flex;
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 4px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.trip-select-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s var(--ease);
+    white-space: nowrap;
+}
+
+.trip-select-btn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.trip-select-btn.active {
+    background: rgba(201, 168, 76, 0.15);
+    color: var(--gold);
+    box-shadow: 0 2px 8px rgba(201, 168, 76, 0.1);
+}
+
+.trip-select-btn i {
+    font-size: 11px;
+}
+
+/* ===========================
    Gallery
    =========================== */
 
@@ -1256,6 +1438,44 @@ a {
 
     #map {
         height: 350px;
+    }
+
+    .stickers-section {
+        padding: 24px;
+    }
+
+    .stickers-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .stickers-grid {
+        gap: 12px;
+    }
+
+    .country-sticker {
+        width: 90px;
+        height: 110px;
+    }
+
+    .sticker-flag {
+        font-size: 28px;
+    }
+
+    .sticker-code {
+        font-size: 14px;
+    }
+
+    .map-controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .map-header {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
     }
 
     .join-content {
