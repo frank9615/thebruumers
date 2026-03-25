@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bruumers — Professional Riders | Gruppo Motociclistico Palermo</title>
+    <meta name="description"
+        content="The Bruumers — Professional Riders. Gruppo motociclistico con base a Palermo. Viaggi in moto, avventure, scoperte gastronomiche e tradizioni locali. Tutte le moto sono benvenute!">
+    <meta name="keywords"
+        content="motoviaggiatori, gruppo moto Palermo, viaggi in moto Sicilia, The Bruumers, moto touring, motociclisti Palermo">
+    <meta property="og:title" content="The Bruumers — Professional Riders">
+    <meta property="og:description"
+        content="Gruppo motociclistico con base a Palermo. Unisciti a noi per vivere l'avventura in moto!">
+    <meta property="og:image" content="assets/bruumers-badge.png">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="assets/bruumers-badge.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <img src="assets/bruumers-badge.png" alt="The Bruumers Logo">
+                <span>THE BRUUMERS</span>
+            </a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#about" class="nav-link">Chi Siamo</a></li>
+                <li><a href="#president" class="nav-link">Il Presidente</a></li>
+                <li><a href="#trips" class="nav-link">I Viaggi</a></li>
+                <li><a href="#gallery" class="nav-link">Galleria</a></li>
+                <li><a href="#join" class="nav-link nav-cta">Unisciti a Noi</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <img src="assets/hero-bg.png" alt="Motorcycle riders on coastal road" class="hero-bg-img">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-logo animate-on-scroll">
+                <img src="assets/bruumers-badge.png" alt="The Bruumers — Professional Riders">
+            </div>
+            <h1 class="hero-title animate-on-scroll">
+                <span class="hero-title-line">LA STRADA È</span>
+                <span class="hero-title-accent">LA NOSTRA CASA</span>
+            </h1>
+            <p class="hero-subtitle animate-on-scroll">Motoviaggiatori con base a Palermo. Ogni curva è un'avventura,
+                ogni viaggio una storia da raccontare.</p>
+            <div class="hero-actions animate-on-scroll">
+                <a href="#join" class="btn btn-primary">
+                    <i class="fas fa-motorcycle"></i> Unisciti al Gruppo
+                </a>
+                <a href="#trips" class="btn btn-outline">
+                    <i class="fas fa-map-marked-alt"></i> I Nostri Viaggi
+                </a>
+            </div>
+            <div class="hero-stats animate-on-scroll">
+                <div class="stat">
+                    <span class="stat-number" data-target="2252">0</span>
+                    <span class="stat-unit">km</span>
+                    <span class="stat-label">Ultimo viaggio</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-target="5">0</span>
+                    <span class="stat-unit">+</span>
+                    <span class="stat-label">Viaggi completati</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-target="3">0</span>
+                    <span class="stat-unit">+</span>
+                    <span class="stat-label">Paesi visitati</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span>Scorri</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Chi Siamo</span>
+                <h2 class="section-title">Non solo un gruppo.<br><span class="text-gold">Una famiglia su due
+                        ruote.</span></h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text animate-on-scroll">
+                    <p class="about-lead">
+                        <strong>The Bruumers — Professional Riders</strong> nasce a <strong>Palermo</strong> dalla
+                        passione condivisa per la moto e la voglia di esplorare il mondo su due ruote. Non siamo un club
+                        esclusivo: <em>siamo una comunità aperta a tutti</em>.
+                    </p>
+                    <p>
+                        Che tu sia un rider esperto o un
+                        principiante alla prima avventura — <strong>qui sei il benvenuto</strong>. L'unica cosa che
+                        conta è la passione per la strada e la voglia di condividere l'emozione di ogni chilometro.
+                    </p>
+                    <p>
+                        Il nostro obiettivo? <strong>Divertirci in moto, scoprire posti nuovi, assaporare la cucina
+                            locale e vivere le tradizioni dei territori che attraversiamo.</strong> Dai tornanti delle
+                        Madonie alle coste della Grecia, ogni viaggio è un'esperienza che unisce.
+                    </p>
+                </div>
+                <div class="about-values animate-on-scroll">
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-users"></i></div>
+                        <h3>Tutti Benvenuti</h3>
+                        <p>Ogni moto, ogni rider, ogni livello di esperienza. Nessuna distinzione, solo passione
+                            condivisa.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-utensils"></i></div>
+                        <h3>Scoperta Gastronomica</h3>
+                        <p>Ogni tappa è un'occasione per gustare i sapori autentici dei luoghi che visitiamo.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-landmark"></i></div>
+                        <h3>Cultura & Tradizione</h3>
+                        <p>Viaggiare in moto per scoprire le tradizioni locali, i borghi nascosti e la storia d'Italia e
+                            oltre.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-heart"></i></div>
+                        <h3>Puro Divertimento</h3>
+                        <p>La moto è libertà. Ogni curva, ogni panorama, ogni risata con gli amici è ciò che ci rende
+                            Bruumers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- President Section -->
+    <section class="president" id="president">
+        <div class="container">
+            <div class="president-card animate-on-scroll">
+                <div class="president-image">
+                    <img src="assets/president.png" alt="Valeriano Aprile — Presidente The Bruumers">
+                    <div class="president-badge">
+                        <i class="fas fa-crown"></i>
+                        <span>Presidente</span>
+                    </div>
+                </div>
+                <div class="president-info">
+                    <span class="section-tag">Il Fondatore</span>
+                    <h2 class="president-name">Valeriano Aprile</h2>
+                    <p class="president-role">Presidente — The Bruumers</p>
+                    <div class="president-divider"></div>
+                    <p class="president-quote">
+                        <i class="fas fa-quote-left"></i>
+                        La moto non è solo un mezzo di trasporto: è uno stile di vita. Ogni viaggio che organizziamo è
+                        pensato per creare ricordi indimenticabili, scoprire posti meravigliosi e rafforzare il legame
+                        tra tutti noi. In questo gruppo non esistono differenze — siamo tutti uniti dalla stessa
+                        passione.
+                        <i class="fas fa-quote-right"></i>
+                    </p>
+                    <p class="president-bio">
+                        Motociclista appassionato e anima del gruppo, Valeriano ha fondato The Bruumers con una visione
+                        chiara: creare una comunità inclusiva dove chiunque possa vivere l'avventura su due ruote. Dalla
+                        Sicilia alla Grecia, ha guidato il gruppo in viaggi epici che sono diventati leggenda.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trips Section -->
+    <section class="trips" id="trips">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">I Nostri Viaggi</span>
+                <h2 class="section-title">Strade percorse,<br><span class="text-gold">storie da raccontare.</span></h2>
+                <p class="section-desc">Ogni viaggio è un'avventura unica. Esplora le nostre rotte sulla mappa
+                    interattiva e scopri i percorsi che abbiamo attraversato insieme.</p>
+            </div>
+
+            <!-- Interactive Map -->
+            <div class="map-container animate-on-scroll">
+                <div class="map-header">
+                    <div class="map-title">
+                        <i class="fas fa-route"></i>
+                        <h3>Mappa dei Viaggi</h3>
+                    </div>
+                    <div class="map-legend">
+                        <span class="legend-item"><span class="legend-dot" style="background:#c9a84c"></span>
+                            Tappe</span>
+                        <span class="legend-item"><span class="legend-line"></span> Percorso</span>
+                    </div>
+                </div>
+                <div id="map"></div>
+            </div>
+
+            <!-- Trip Cards -->
+            <div class="trip-cards animate-on-scroll">
+                <div class="trip-card trip-card-featured">
+                    <div class="trip-card-badge">Epico</div>
+                    <div class="trip-card-image">
+                        <img src="assets/route-greece.jpg" alt="Viaggio Palermo - Grecia">
+                    </div>
+                    <div class="trip-card-content">
+                        <h3>Palermo → Grecia</h3>
+                        <p class="trip-card-subtitle">Il Grand Tour del Mediterraneo</p>
+                        <div class="trip-stats">
+                            <div class="trip-stat"><i class="fas fa-road"></i> 2.252 km</div>
+                            <div class="trip-stat"><i class="fas fa-clock"></i> 35 ore di guida</div>
+                            <div class="trip-stat"><i class="fas fa-map-pin"></i> 12 tappe</div>
+                        </div>
+                        <p class="trip-card-desc">
+                            Un viaggio indimenticabile attraverso il Sud Italia e la Grecia. Da Palermo, risalendo la
+                            Calabria, attraversando la Puglia fino all'imbarco per la Grecia. Tappe mozzafiato a
+                            Saranda, Meteora, Atene, Olimpia, Delfi, Patrasso e le isole ioniche.
+                        </p>
+                        <div class="trip-route-tags">
+                            <span class="route-tag">Palermo</span>
+                            <span class="route-tag">Messina</span>
+                            <span class="route-tag">Cosenza</span>
+                            <span class="route-tag">Taranto</span>
+                            <span class="route-tag">Saranda</span>
+                            <span class="route-tag">Meteora</span>
+                            <span class="route-tag">Atene</span>
+                            <span class="route-tag">Olimpia</span>
+                            <span class="route-tag">Delfi</span>
+                            <span class="route-tag">Patrasso</span>
+                            <span class="route-tag">Leucade</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trip-card">
+                    <div class="trip-card-image trip-card-image-placeholder">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <div class="trip-card-content">
+                        <h3>Il Giro delle Madonie</h3>
+                        <p class="trip-card-subtitle">Le curve più belle della Sicilia</p>
+                        <div class="trip-stats">
+                            <div class="trip-stat"><i class="fas fa-road"></i> 280 km</div>
+                            <div class="trip-stat"><i class="fas fa-clock"></i> 6 ore</div>
+                            <div class="trip-stat"><i class="fas fa-map-pin"></i> 5 tappe</div>
+                        </div>
+                        <p class="trip-card-desc">
+                            Un classico dei Bruumers: il giro delle Madonie partendo da Palermo. Strade panoramiche tra
+                            i borghi più belli della Sicilia, con soste gastronomiche tra ricotta fresca e cannoli.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="trip-card">
+                    <div class="trip-card-image trip-card-image-placeholder">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <div class="trip-card-content">
+                        <h3>Costa a Costa</h3>
+                        <p class="trip-card-subtitle">Da Palermo a Cefalù lungo la costa</p>
+                        <div class="trip-stats">
+                            <div class="trip-stat"><i class="fas fa-road"></i> 140 km</div>
+                            <div class="trip-stat"><i class="fas fa-clock"></i> 4 ore</div>
+                            <div class="trip-stat"><i class="fas fa-map-pin"></i> 4 tappe</div>
+                        </div>
+                        <p class="trip-card-desc">
+                            La litoranea tirrenica al suo meglio. Una giornata rilassante lungo la costa con pranzo di
+                            pesce fresco a Cefalù e tramonto sulla spiaggia.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Galleria</span>
+                <h2 class="section-title">Momenti in sella,<br><span class="text-gold">ricordi per sempre.</span></h2>
+                <p class="section-desc">Segui il nostro profilo Instagram per vedere tutte le foto e i video dei nostri
+                    viaggi!</p>
+            </div>
+            <div class="gallery-cta animate-on-scroll">
+                <a href="https://www.instagram.com/thebruumers/" target="_blank" rel="noopener noreferrer"
+                    class="instagram-embed-card">
+                    <div class="instagram-card-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="instagram-card-info">
+                        <h3>@thebruumers</h3>
+                        <p>Seguici su Instagram per foto, storie e reel dai nostri viaggi in moto!</p>
+                    </div>
+                    <div class="instagram-card-arrow">
+                        <i class="fas fa-external-link-alt"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Section -->
+    <section class="join" id="join">
+        <div class="container">
+            <div class="join-content animate-on-scroll">
+                <div class="join-text">
+                    <span class="section-tag">Unisciti a Noi</span>
+                    <h2 class="section-title">Pronto per la prossima<br><span class="text-gold">avventura?</span></h2>
+                    <p>
+                        Entra a far parte della famiglia Bruumers! Che tu abbia una sportiva, un'enduro o un cruiser
+                        — la tua moto è la benvenuta. Unisciti al nostro gruppo WhatsApp per restare
+                        aggiornato sui prossimi giri e conoscere altri rider come te.
+                    </p>
+                    <p>
+                        <strong>Ci troviamo a Palermo</strong> e organizziamo uscite regolari — dai giri di una giornata
+                        ai viaggi epici di più giorni. Non serve essere piloti professionisti, basta avere la
+                        <strong>voglia di guidare, esplorare e divertirsi</strong>.
+                    </p>
+                </div>
+                <div class="join-actions">
+                    <a href="https://chat.whatsapp.com/CKcNtJ3xhgNKChDBxYCJVQ?mode=gi_t" target="_blank"
+                        rel="noopener noreferrer" class="join-card whatsapp-card" id="whatsapp-join">
+                        <div class="join-card-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3>Gruppo WhatsApp</h3>
+                        <p>Entra nel gruppo e conosci gli altri Bruumers. Qui organizziamo giri, condividiamo percorsi e
+                            ci divertiamo!</p>
+                        <span class="join-card-cta">Entra nel Gruppo <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="https://www.instagram.com/thebruumers/" target="_blank" rel="noopener noreferrer"
+                        class="join-card instagram-card" id="instagram-follow">
+                        <div class="join-card-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <h3>Seguici su Instagram</h3>
+                        <p>Foto, video, storie dai nostri viaggi. Seguici per non perderti niente e per scoprire i
+                            prossimi eventi!</p>
+                        <span class="join-card-cta">Seguici <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/bruumers-badge.png" alt="The Bruumers Logo" class="footer-logo">
+                    <p class="footer-tagline">Professional Riders — Palermo</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#about">Chi Siamo</a>
+                    <a href="#president">Il Presidente</a>
+                    <a href="#trips">I Viaggi</a>
+                    <a href="#join">Unisciti a Noi</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/thebruumers/" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://chat.whatsapp.com/CKcNtJ3xhgNKChDBxYCJVQ?mode=gi_t" target="_blank"
+                        rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 The Bruumers — Professional Riders. Tutti i diritti riservati.</p>
+                <p class="footer-location"><i class="fas fa-map-marker-alt"></i> Palermo, Sicilia, Italia</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
