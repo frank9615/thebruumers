@@ -5,6 +5,21 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // ===========================
+    // Mobile Menu State
+    // ===========================
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenuWrapper = document.getElementById('nav-menu-wrapper');
+    const navClose = document.getElementById('nav-close');
+
+    function closeMobileMenu() {
+        if (navToggle) navToggle.classList.remove('active');
+        if (navMenuWrapper) {
+            navMenuWrapper.classList.remove('open');
+            document.body.classList.remove('no-scroll');
+        }
+    }
+
+    // ===========================
     // Navbar Scroll Effect
     // ===========================
     const navbar = document.getElementById('navbar');
@@ -15,42 +30,40 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             navbar.classList.remove('scrolled');
         }
-    });
+        closeMobileMenu(); // Auto-close menu on any background scroll
+    }, { passive: true });
 
     // ===========================
     // Mobile Menu Toggle
     // ===========================
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenuWrapper = document.getElementById('nav-menu-wrapper');
-    const navClose = document.getElementById('nav-close');
 
-    navToggle.addEventListener('click', () => {
-        navToggle.classList.toggle('active');
-        if (navMenuWrapper) {
-            navMenuWrapper.classList.toggle('open');
-            document.body.classList.toggle('no-scroll', navMenuWrapper.classList.contains('open'));
-        }
-    });
-
-    if (navClose) {
-        navClose.addEventListener('click', () => {
-            navToggle.classList.remove('active');
+    if (navToggle) {
+        navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navToggle.classList.toggle('active');
             if (navMenuWrapper) {
-                navMenuWrapper.classList.remove('open');
-                document.body.classList.remove('no-scroll');
+                navMenuWrapper.classList.toggle('open');
+                document.body.classList.toggle('no-scroll', navMenuWrapper.classList.contains('open'));
             }
         });
     }
 
+    if (navClose) {
+        navClose.addEventListener('click', closeMobileMenu);
+    }
+
     // Close menu when clicking a link
     document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            navToggle.classList.remove('active');
-            if (navMenuWrapper) {
-                navMenuWrapper.classList.remove('open');
-                document.body.classList.remove('no-scroll');
+        link.addEventListener('click', closeMobileMenu);
+    });
+
+    // Close menu when clicking outside of the menu wrapper
+    document.addEventListener('click', (e) => {
+        if (navMenuWrapper && navMenuWrapper.classList.contains('open')) {
+            if (!navMenuWrapper.contains(e.target) && (!navToggle || !navToggle.contains(e.target))) {
+                closeMobileMenu();
             }
-        });
+        }
     });
 
     // ===========================
