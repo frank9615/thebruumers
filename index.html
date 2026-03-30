@@ -2,6 +2,24 @@
 <html lang="it">
 
 <head>
+    <!-- Google tag (gtag.js) - loaded only after cookie consent -->
+    <script>
+        function loadGtag() {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-DH4J42K0JE';
+            document.head.appendChild(s);
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            window.gtag = gtag;
+            gtag('js', new Date());
+            gtag('config', 'G-DH4J42K0JE');
+        }
+        // Auto-load if consent was already given
+        if (localStorage.getItem('cookie-consent') === 'accepted') {
+            loadGtag();
+        }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Bruumers — Professional Riders | Gruppo Motociclistico Palermo</title>
@@ -501,9 +519,51 @@
         </div>
     </footer>
 
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookie-banner">
+        <div class="cookie-banner-content">
+            <div class="cookie-banner-text">
+                <i class="fas fa-cookie-bite cookie-icon"></i>
+                <div>
+                    <p class="cookie-title">Questo sito utilizza i cookie 🍪</p>
+                    <p class="cookie-desc">Utilizziamo cookie analitici (Google Analytics) per comprendere come i visitatori interagiscono con il nostro sito e migliorare l'esperienza di navigazione. Nessun dato personale viene condiviso con terze parti per scopi pubblicitari. Puoi accettare o rifiutare l'uso dei cookie.</p>
+                </div>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn cookie-btn-reject" id="cookie-reject">Rifiuta</button>
+                <button class="cookie-btn cookie-btn-accept" id="cookie-accept">Accetta</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
+
+    <!-- Cookie Consent Script -->
+    <script>
+        (function() {
+            var banner = document.getElementById('cookie-banner');
+            var consent = localStorage.getItem('cookie-consent');
+
+            if (!consent) {
+                setTimeout(function() {
+                    banner.classList.add('cookie-banner-visible');
+                }, 1500);
+            }
+
+            document.getElementById('cookie-accept').addEventListener('click', function() {
+                localStorage.setItem('cookie-consent', 'accepted');
+                banner.classList.remove('cookie-banner-visible');
+                loadGtag();
+            });
+
+            document.getElementById('cookie-reject').addEventListener('click', function() {
+                localStorage.setItem('cookie-consent', 'rejected');
+                banner.classList.remove('cookie-banner-visible');
+            });
+        })();
+    </script>
 </body>
 
 </html>
